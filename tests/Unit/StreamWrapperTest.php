@@ -42,6 +42,10 @@ class StreamWrapperTest extends TestCase
 
     private $connection;
 
+    private $client;
+
+    private $bucket;
+
     public function set_up()
     {
         $this->client = $this->prophesize(StorageClient::class);

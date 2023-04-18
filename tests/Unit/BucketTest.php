@@ -55,6 +55,7 @@ class BucketTest extends TestCase
 
     private $connection;
     private $resumableUploader;
+    private $multipartUploader;
 
     public function set_up()
     {
