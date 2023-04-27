@@ -43,6 +43,8 @@ class StorageClientTest extends TestCase
 
     const PROJECT = 'my-project';
     public $connection;
+    public $client;
+    
 
     public function setUp(): void
     {

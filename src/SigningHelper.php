@@ -191,6 +191,10 @@ class SigningHelper
 
         // urlencode parameter values
         foreach ($params as &$value) {
+            if ($value === null) {
+                $value = '';
+            }
+
             $value = rawurlencode($value);
         }
 
@@ -334,9 +338,14 @@ class SigningHelper
             $requestHash
         ]);
 
-        $signature = bin2hex(base64_decode($credentials->signBlob($stringToSign, [
+        $signBlob = $credentials->signBlob($stringToSign, [
             'forceOpenssl' => $options['forceOpenssl']
-        ])));
+        ]);
+        if ($signBlob === null) {
+            $signBlob = '';
+        }
+
+        $signature = bin2hex(base64_decode($signBlob));
 
         // Construct the modified resource name. If a custom hostname is provided,
         // this will remove the bucket name from the resource.
