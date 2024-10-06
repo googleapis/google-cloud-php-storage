@@ -40,6 +40,10 @@ class StreamWrapperTest extends TestCase
     private $originalDefaultContext;
 
     private $connection;
+    
+    private $client;
+
+    private $bucket;
 
     public function setUp(): void
     {
